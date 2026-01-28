@@ -40,7 +40,7 @@ class DualDishwasherApi(ApplianceApi):
             GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "dry_option", erd_override="lower_setting", icon_override="mdi:fan", entity_category=EntityCategory.DIAGNOSTIC),
             GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "wash_zone", erd_override="lower_setting", icon_override="mdi:dock-top", entity_category=EntityCategory.DIAGNOSTIC),
             GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "delay_hours", erd_override="lower_setting", icon_override="mdi:clock-fast", entity_category=EntityCategory.DIAGNOSTIC),
-            GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "wifi_enabled", erd_override="lower_setting", icon_override="mdi:wifi", entity_category=EntityCategory.DIAGNOSTIC)
+            GeErdPropertyBinarySensor(self, ErdCode.DISHWASHER_USER_SETTING, "wifi_enabled", erd_override="lower_setting", icon_override="mdi:wifi", entity_category=EntityCategory.DIAGNOSTIC)
         ]
 
         upper_entities = [
@@ -65,7 +65,7 @@ class DualDishwasherApi(ApplianceApi):
             GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "dry_option", erd_override="upper_setting", icon_override="mdi:fan", entity_category=EntityCategory.DIAGNOSTIC),
             GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "wash_zone", erd_override="upper_setting", icon_override="mdi:dock-top", entity_category=EntityCategory.DIAGNOSTIC),
             GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "delay_hours", erd_override="upper_setting", icon_override="mdi:clock-fast", entity_category=EntityCategory.DIAGNOSTIC),
-            GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "wifi_enabled", erd_override="upper_setting", icon_override="mdi:wifi", entity_category=EntityCategory.DIAGNOSTIC)
+            GeErdPropertyBinarySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "wifi_enabled", erd_override="upper_setting", icon_override="mdi:wifi", entity_category=EntityCategory.DIAGNOSTIC)
         ]
 
         # check for remote command availability and add if present (lower)
