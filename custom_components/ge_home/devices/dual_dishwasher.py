@@ -6,7 +6,7 @@ from homeassistant.helpers.entity import Entity
 from gehomesdk import ErdCode, ErdApplianceType, ErdRemoteCommand
 
 from .base import ApplianceApi
-from ..entities import GeErdSensor, GeErdBinarySensor, GeErdPropertySensor, GeDishwasherCommandButton
+from ..entities import GeErdSensor, GeErdBinarySensor, GeErdPropertySensor, GeDishwasherCommandButton, GeErdPropertyBinarySensor
 
 _LOGGER = logging.getLogger(__name__)
 
