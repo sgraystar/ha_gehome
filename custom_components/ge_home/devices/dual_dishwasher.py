@@ -6,7 +6,7 @@ from homeassistant.helpers.entity import Entity
 from gehomesdk import ErdCode, ErdApplianceType, ErdRemoteCommand
 
 from .base import ApplianceApi
-from ..entities import GeErdSensor, GeErdBinarySensor, GeErdPropertySensor, GeDishwasherCommandButton, GeErdPropertyBinarySensor
+from ..entities import GeErdSensor, GeErdBinarySensor, GeErdPropertySensor, GeDishwasherCommandButton
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -73,7 +73,7 @@ class DualDishwasherApi(ApplianceApi):
             lower_entities.extend(
                 [
                     #GeErdBinarySensor(self, ErdCode.DISHWASHER_REMOTE_START_ENABLE, erd_override="lower_remote_command_enable", entity_category=EntityCategory.DIAGNOSTIC),
-                    GeErdPropertyBinarySensor(self, ErdCode.DISHWASHER_USER_SETTING, "wifi_enabled", erd_override="lower_remote_command_enable", icon_override="mdi:wifi", entity_category=EntityCategory.DIAGNOSTIC),
+                    GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "wifi_enabled", erd_override="lower_remote_command_enable", icon_override="mdi:wifi", entity_category=EntityCategory.DIAGNOSTIC),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_REMOTE_START_COMMAND, ErdRemoteCommand.START_RESUME, erd_override="lower_remote_command"),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_REMOTE_START_COMMAND, ErdRemoteCommand.PAUSE, erd_override="lower_remote_command"),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_REMOTE_START_COMMAND, ErdRemoteCommand.CANCEL, erd_override="lower_remote_command")
@@ -85,7 +85,7 @@ class DualDishwasherApi(ApplianceApi):
             upper_entities.extend(
                 [
                     #GeErdBinarySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, erd_override="upper_remote_command_enable", entity_category=EntityCategory.DIAGNOSTIC),
-                    GeErdPropertyBinarySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "wifi_enabled", erd_override="upper_remote_command_enable", icon_override="mdi:wifi", entity_category=EntityCategory.DIAGNOSTIC),
+                    GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "wifi_enabled", erd_override="upper_remote_command_enable", icon_override="mdi:wifi", entity_category=EntityCategory.DIAGNOSTIC),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_UPPER_REMOTE_START_COMMAND, ErdRemoteCommand.START_RESUME, erd_override="upper_remote_command"),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_UPPER_REMOTE_START_COMMAND, ErdRemoteCommand.PAUSE, erd_override="upper_remote_command"),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_UPPER_REMOTE_START_COMMAND, ErdRemoteCommand.CANCEL, erd_override="upper_remote_command")
