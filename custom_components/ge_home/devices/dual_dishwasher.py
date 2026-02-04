@@ -68,8 +68,7 @@ class DualDishwasherApi(ApplianceApi):
             GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "wifi_enabled", erd_override="upper_remote_command_enable", entity_category=EntityCategory.DIAGNOSTIC)
         ]
 
-        # check for remote command availability and add if present (lower)
-        #if self.has_erd_code(ErdCode.DISHWASHER_REMOTE_START_ENABLE):
+        # remote commands are always available on the dishdrawer, but only accepted when enabled by a button on the dishdrawer (lower)
         if True:
             lower_entities.extend(
                 [
@@ -79,8 +78,7 @@ class DualDishwasherApi(ApplianceApi):
                 ]
             )
 
-        # check for remote command availability and add if present (upper)
-        #if self.has_erd_code(ErdCode.DISHWASHER_UPPER_REMOTE_START_ENABLE):
+        # remote commands are always available on the dishdrawer, but only accepted when enabled by a button on the dishdrawer (upper)
         if True:
             upper_entities.extend(
                 [
