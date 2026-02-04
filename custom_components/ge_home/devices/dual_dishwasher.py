@@ -39,7 +39,8 @@ class DualDishwasherApi(ApplianceApi):
             GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "rinse_aid", erd_override="lower_setting", icon_override="mdi:shimmer", entity_category=EntityCategory.DIAGNOSTIC),
             GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "dry_option", erd_override="lower_setting", icon_override="mdi:fan", entity_category=EntityCategory.DIAGNOSTIC),
             GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "wash_zone", erd_override="lower_setting", icon_override="mdi:dock-top", entity_category=EntityCategory.DIAGNOSTIC),
-            GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "delay_hours", erd_override="lower_setting", icon_override="mdi:clock-fast", entity_category=EntityCategory.DIAGNOSTIC)
+            GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "delay_hours", erd_override="lower_setting", icon_override="mdi:clock-fast", entity_category=EntityCategory.DIAGNOSTIC),
+            GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "wifi_enabled", erd_override="lower_remote_command_enable", entity_category=EntityCategory.DIAGNOSTIC)
         ]
 
         upper_entities = [
@@ -63,7 +64,8 @@ class DualDishwasherApi(ApplianceApi):
             GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "rinse_aid", erd_override="upper_setting", icon_override="mdi:shimmer", entity_category=EntityCategory.DIAGNOSTIC),
             GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "dry_option", erd_override="upper_setting", icon_override="mdi:fan", entity_category=EntityCategory.DIAGNOSTIC),
             GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "wash_zone", erd_override="upper_setting", icon_override="mdi:dock-top", entity_category=EntityCategory.DIAGNOSTIC),
-            GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "delay_hours", erd_override="upper_setting", icon_override="mdi:clock-fast", entity_category=EntityCategory.DIAGNOSTIC)
+            GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "delay_hours", erd_override="upper_setting", icon_override="mdi:clock-fast", entity_category=EntityCategory.DIAGNOSTIC),
+            GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "wifi_enabled", erd_override="upper_remote_command_enable", entity_category=EntityCategory.DIAGNOSTIC)
         ]
 
         # check for remote command availability and add if present (lower)
@@ -71,7 +73,6 @@ class DualDishwasherApi(ApplianceApi):
         if True:
             lower_entities.extend(
                 [
-                    GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "wifi_enabled", erd_override="lower_remote_command_enable", entity_category=EntityCategory.DIAGNOSTIC),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_REMOTE_START_COMMAND, ErdRemoteCommand.START_RESUME, erd_override="lower_remote_command"),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_REMOTE_START_COMMAND, ErdRemoteCommand.PAUSE, erd_override="lower_remote_command"),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_REMOTE_START_COMMAND, ErdRemoteCommand.CANCEL, erd_override="lower_remote_command")
