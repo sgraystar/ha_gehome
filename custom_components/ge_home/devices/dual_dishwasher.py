@@ -82,7 +82,6 @@ class DualDishwasherApi(ApplianceApi):
         if True:
             upper_entities.extend(
                 [
-                    GeErdPropertyBinarySensor(self, ErdCode.DISHWASHER_UPPERUSER_SETTING, "wifi_enabled", erd_override="upper_setting", icon_off_override="mdi:wifi-off", icon_on_override="mdi:wifi", entity_category=EntityCategory.DIAGNOSTIC),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_UPPER_REMOTE_START_COMMAND, ErdRemoteCommand.START_RESUME, erd_override="upper_remote_command"),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_UPPER_REMOTE_START_COMMAND, ErdRemoteCommand.PAUSE, erd_override="upper_remote_command"),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_UPPER_REMOTE_START_COMMAND, ErdRemoteCommand.CANCEL, erd_override="upper_remote_command")
