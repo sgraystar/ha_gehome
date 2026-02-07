@@ -6,7 +6,7 @@ from homeassistant.helpers.entity import Entity
 from gehomesdk import ErdCode, ErdApplianceType, ErdRemoteCommand
 
 from .base import ApplianceApi
-from ..entities import GeErdSensor, GeErdBinarySensor, GeErdPropertySensor, GeErdPropertyBinarySensor, GeDishwasherCommandButton
+from ..entities import GeErdSensor, GeErdBinarySensor, GeErdPropertySensor, GeDishwasherCommandButton
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -39,7 +39,8 @@ class DualDishwasherApi(ApplianceApi):
             GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "rinse_aid", erd_override="lower_setting", icon_override="mdi:shimmer", entity_category=EntityCategory.DIAGNOSTIC),
             GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "dry_option", erd_override="lower_setting", icon_override="mdi:fan", entity_category=EntityCategory.DIAGNOSTIC),
             GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "wash_zone", erd_override="lower_setting", icon_override="mdi:dock-top", entity_category=EntityCategory.DIAGNOSTIC),
-            GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "delay_hours", erd_override="lower_setting", icon_override="mdi:clock-fast", entity_category=EntityCategory.DIAGNOSTIC)
+            GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "delay_hours", erd_override="lower_setting", icon_override="mdi:clock-fast", entity_category=EntityCategory.DIAGNOSTIC),
+            GeErdPropertySensor(self, ErdCode.DISHWASHER_USER_SETTING, "wifi_enabled", erd_override="lower_setting", icon_override="mdi:wifi", entity_category=EntityCategory.DIAGNOSTIC)
         ]
 
         upper_entities = [
@@ -63,14 +64,14 @@ class DualDishwasherApi(ApplianceApi):
             GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "rinse_aid", erd_override="upper_setting", icon_override="mdi:shimmer", entity_category=EntityCategory.DIAGNOSTIC),
             GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "dry_option", erd_override="upper_setting", icon_override="mdi:fan", entity_category=EntityCategory.DIAGNOSTIC),
             GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "wash_zone", erd_override="upper_setting", icon_override="mdi:dock-top", entity_category=EntityCategory.DIAGNOSTIC),
-            GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "delay_hours", erd_override="upper_setting", icon_override="mdi:clock-fast", entity_category=EntityCategory.DIAGNOSTIC)
+            GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "delay_hours", erd_override="upper_setting", icon_override="mdi:clock-fast", entity_category=EntityCategory.DIAGNOSTIC),
+            GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "wifi_enabled", erd_override="upper_setting", icon_override="mdi:wifi", entity_category=EntityCategory.DIAGNOSTIC)
         ]
 
         # check for remote command availability and add if present (lower)
         if True:
             lower_entities.extend(
                 [
-                    GeErdPropertyBinarySensor(self, ErdCode.DISHWASHER_USER_SETTING, "wifi_enabled", erd_override="lower_setting", icon_off_override="mdi:wifi-off", icon_on_override="mdi:wifi", entity_category=EntityCategory.DIAGNOSTIC),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_REMOTE_START_COMMAND, ErdRemoteCommand.START_RESUME, erd_override="lower_remote_command"),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_REMOTE_START_COMMAND, ErdRemoteCommand.PAUSE, erd_override="lower_remote_command"),
                     GeDishwasherCommandButton(self, ErdCode.DISHWASHER_REMOTE_START_COMMAND, ErdRemoteCommand.CANCEL, erd_override="lower_remote_command")
