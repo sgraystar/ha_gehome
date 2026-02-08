@@ -42,7 +42,7 @@ class GeErdPropertyBinarySensor(GeErdBinarySensor):
             
             """
             Handle the property 'wifi_enabled'
-            Should really be more generic, eg self._boolify to handle UserSetting.ENABLE/DISABLE
+            May be safe for other appliances with UserSetting.ENABLE/DISABLE but not sure
             """
             if self.erd_property == 'wifi_enabled':
                 if self._stringify(value) == 'Enable':
