@@ -66,7 +66,7 @@ class DualDishwasherApi(ApplianceApi):
             GeErdPropertySensor(self, ErdCode.DISHWASHER_UPPER_USER_SETTING, "delay_hours", erd_override="upper_setting", icon_override="mdi:clock-fast", entity_category=EntityCategory.DIAGNOSTIC)
         ]
 
-        # Remote commands are always available and enabled/disabled per tub (lower)
+        # Remote commands are always supported, enabled by a physical button per tub, disabled when the tub is opened (lower)
         if True:
             lower_entities.extend(
                 [
@@ -77,7 +77,7 @@ class DualDishwasherApi(ApplianceApi):
                 ]
             )
 
-        # Remote commands are always available and enabled/disabled per tub (upper)
+        # Remote commands are always supported, enabled by a physical button per tub, disabled when the tub is opened (upper)
         if True:
             upper_entities.extend(
                 [
