@@ -39,6 +39,15 @@ class GeErdPropertyBinarySensor(GeErdBinarySensor):
         """Return True if entity is on."""
         try:
             value = magicattr.get(self.appliance.get_erd_value(self.erd_code), self.erd_property)
+            """
+            Handle the property 'wifi_enabled'
+            Should be more generic, eg self._boolify to handle UserSetting.ENABLE/DISABLE
+            """
+            if self.erd_property == 'wifi_enabled':
+                if self._stringify(value) == 'Enable':
+                  return True
+                else:
+                  return False
         except KeyError:
             return None
         return self._boolify(value)
